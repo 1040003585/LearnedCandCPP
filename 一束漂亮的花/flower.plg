@@ -1,0 +1,183 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: flower - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Users\wu\AppData\Local\Temp\RSP9D1D.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/flower.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"F:\admin\Desktop\一束漂亮的花\flower.c"
+]
+Creating command line "cl.exe @C:\Users\wu\AppData\Local\Temp\RSP9D1D.tmp" 
+Creating temporary file "C:\Users\wu\AppData\Local\Temp\RSP9D1E.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/flower.pdb" /debug /machine:I386 /out:"Debug/flower.exe" /pdbtype:sept 
+".\Debug\flower.obj"
+]
+Creating command line "link.exe @C:\Users\wu\AppData\Local\Temp\RSP9D1E.tmp"
+<h3>Output Window</h3>
+Compiling...
+flower.c
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(239) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(241) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(242) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(244) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(245) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(246) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(247) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(248) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(248) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(248) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(249) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(249) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(250) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(252) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(253) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(253) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(254) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(255) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(255) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(256) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(256) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(256) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(257) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(258) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(259) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(260) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(261) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(261) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(262) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(262) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(263) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(264) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(265) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(266) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(266) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(267) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(268) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(269) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(270) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(271) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(272) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(272) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(273) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(274) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(275) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(275) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(276) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(277) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(277) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(278) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(278) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(279) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(280) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(281) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(282) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(283) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(283) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(284) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(284) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(285) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(286) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(287) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(287) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(288) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(289) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(290) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(290) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(290) : error C4226: nonstandard extension used : 'huge' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(291) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(291) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(292) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(293) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(294) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(295) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(296) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(297) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(297) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(298) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(298) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(299) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(301) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(301) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(302) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(303) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(304) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(305) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(307) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(308) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(308) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(309) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(310) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(311) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(312) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(312) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(313) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(314) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(315) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(316) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(318) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(319) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(321) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(322) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(323) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(325) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(327) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(328) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(329) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(329) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(330) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(330) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(335) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(335) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(347) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(347) : warning C4229: anachronism used : modifiers on data are ignored
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(348) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(348) : warning C4229: anachronism used : modifiers on data are ignored
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(349) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(349) : warning C4229: anachronism used : modifiers on data are ignored
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(350) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(350) : warning C4229: anachronism used : modifiers on data are ignored
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(351) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(351) : warning C4229: anachronism used : modifiers on data are ignored
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(352) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(352) : warning C4229: anachronism used : modifiers on data are ignored
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(357) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(357) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(367) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(367) : warning C4229: anachronism used : modifiers on data are ignored
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(368) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(368) : warning C4229: anachronism used : modifiers on data are ignored
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(369) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(369) : warning C4229: anachronism used : modifiers on data are ignored
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(370) : error C4226: nonstandard extension used : 'far' is an obsolete keyword
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(370) : warning C4229: anachronism used : modifiers on data are ignored
+d:\program files (x86)\microsoft visual studio\vc98\include\graphics.h(373) : error C2059: syntax error : '.'
+f:\admin\desktop\一束漂亮的花\flower.c(4) : error C2146: syntax error : missing ')' before identifier 'c'
+f:\admin\desktop\一束漂亮的花\flower.c(4) : error C2081: 'COLORREF' : name in formal parameter list illegal
+f:\admin\desktop\一束漂亮的花\flower.c(4) : error C2061: syntax error : identifier 'c'
+f:\admin\desktop\一束漂亮的花\flower.c(4) : error C2059: syntax error : ';'
+f:\admin\desktop\一束漂亮的花\flower.c(4) : error C2059: syntax error : ')'
+f:\admin\desktop\一束漂亮的花\flower.c(4) : error C2449: found '{' at file scope (missing function header?)
+f:\admin\desktop\一束漂亮的花\flower.c(18) : error C2059: syntax error : '}'
+f:\admin\desktop\一束漂亮的花\flower.c(36) : warning C4047: 'function' : 'int *' differs in levels of indirection from 'const int '
+f:\admin\desktop\一束漂亮的花\flower.c(36) : warning C4024: 'initgraph' : different types for formal and actual parameter 1
+f:\admin\desktop\一束漂亮的花\flower.c(36) : warning C4047: 'function' : 'int *' differs in levels of indirection from 'const int '
+f:\admin\desktop\一束漂亮的花\flower.c(36) : warning C4024: 'initgraph' : different types for formal and actual parameter 2
+f:\admin\desktop\一束漂亮的花\flower.c(36) : error C2198: 'initgraph' : too few actual parameters
+f:\admin\desktop\一束漂亮的花\flower.c(52) : warning C4013: 'flower' undefined; assuming extern returning int
+f:\admin\desktop\一束漂亮的花\flower.c(55) : warning C4013: 'RGB' undefined; assuming extern returning int
+f:\admin\desktop\一束漂亮的花\flower.c(62) : warning C4013: 'tie' undefined; assuming extern returning int
+f:\admin\desktop\一束漂亮的花\flower.c(66) : warning C4013: 'closegragh' undefined; assuming extern returning int
+执行 cl.exe 时出错.
+
+
+
+<h3>Results</h3>
+flower.exe - 1 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

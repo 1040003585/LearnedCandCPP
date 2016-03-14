@@ -1,0 +1,60 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: CatCatchRat - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x804 /fo"Debug/CatCatchRat.res" /d "_DEBUG" /d "_AFXDLL" "E:\ÁºÀîÓ¡\MyWork\CatCatchRat\CatCatchRat.rc"" 
+Creating temporary file "C:\DOCUME~1\liaowei\LOCALS~1\Temp\RSP5F.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Debug/" /Fp"Debug/CatCatchRat.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"E:\ÁºÀîÓ¡\MyWork\CatCatchRat\CatCatchRat.cpp"
+"E:\ÁºÀîÓ¡\MyWork\CatCatchRat\CatCatchRatDoc.cpp"
+"E:\ÁºÀîÓ¡\MyWork\CatCatchRat\CatCatchRatView.cpp"
+"E:\ÁºÀîÓ¡\MyWork\CatCatchRat\MainFrm.cpp"
+"E:\ÁºÀîÓ¡\MyWork\CatCatchRat\SelectDlg.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\liaowei\LOCALS~1\Temp\RSP5F.tmp" 
+Creating temporary file "C:\DOCUME~1\liaowei\LOCALS~1\Temp\RSP60.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Debug/" /Fp"Debug/CatCatchRat.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"E:\ÁºÀîÓ¡\MyWork\CatCatchRat\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\liaowei\LOCALS~1\Temp\RSP60.tmp" 
+Creating temporary file "C:\DOCUME~1\liaowei\LOCALS~1\Temp\RSP62.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/CatCatchRat.pdb" /debug /machine:I386 /out:"Debug/CatCatchRat.exe" /pdbtype:sept 
+".\Debug\CatCatchRat.obj"
+".\Debug\CatCatchRatDoc.obj"
+".\Debug\CatCatchRatView.obj"
+".\Debug\MainFrm.obj"
+".\Debug\SelectDlg.obj"
+".\Debug\StdAfx.obj"
+".\Debug\CatCatchRat.res"
+]
+Creating command line "link.exe @C:\DOCUME~1\liaowei\LOCALS~1\Temp\RSP62.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+CatCatchRat.cpp
+CatCatchRatDoc.cpp
+CatCatchRatView.cpp
+MainFrm.cpp
+SelectDlg.cpp
+Generating Code...
+Linking...
+Creating command line "bscmake.exe /nologo /o"Debug/CatCatchRat.bsc"  ".\Debug\StdAfx.sbr" ".\Debug\CatCatchRat.sbr" ".\Debug\CatCatchRatDoc.sbr" ".\Debug\CatCatchRatView.sbr" ".\Debug\MainFrm.sbr" ".\Debug\SelectDlg.sbr""
+Creating browse info file...
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+CatCatchRat.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

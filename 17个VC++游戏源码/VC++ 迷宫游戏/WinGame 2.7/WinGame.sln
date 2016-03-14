@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WinGame", "WinGame.vcproj", "{A039AE0C-193B-48BE-8B10-51C46AA2297E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A039AE0C-193B-48BE-8B10-51C46AA2297E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A039AE0C-193B-48BE-8B10-51C46AA2297E}.Debug|Win32.Build.0 = Debug|Win32
+		{A039AE0C-193B-48BE-8B10-51C46AA2297E}.Release|Win32.ActiveCfg = Release|Win32
+		{A039AE0C-193B-48BE-8B10-51C46AA2297E}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

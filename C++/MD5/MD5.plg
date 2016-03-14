@@ -1,0 +1,32 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: MD5 - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSP4532.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /FR"Debug/" /Fp"Debug/MD5.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ  /c 
+"F:\BACKUP\admin\Desktop\MD5\1.cpp"
+]
+Creating command line "cl.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSP4532.tmp" 
+<h3>Output Window</h3>
+Compiling...
+1.cpp
+F:\BACKUP\admin\Desktop\MD5\1.cpp(9) : warning C4305: 'initializing' : truncation from 'const int' to 'const char'
+F:\BACKUP\admin\Desktop\MD5\1.cpp(9) : warning C4309: 'initializing' : truncation of constant value
+F:\BACKUP\admin\Desktop\MD5\1.cpp(10) : warning C4305: 'initializing' : truncation from 'const int' to 'const char'
+F:\BACKUP\admin\Desktop\MD5\1.cpp(10) : warning C4309: 'initializing' : truncation of constant value
+F:\BACKUP\admin\Desktop\MD5\1.cpp(78) : error C2664: 'WriteProcessMemory' : cannot convert parameter 3 from 'const char [3]' to 'void *'
+        Conversion loses qualifiers
+Ö´ÐÐ cl.exe Ê±³ö´í.
+
+
+
+<h3>Results</h3>
+1.obj - 1 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

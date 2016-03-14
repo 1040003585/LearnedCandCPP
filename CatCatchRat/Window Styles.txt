@@ -1,0 +1,43 @@
+Window Styles
+
+WS_BORDER  //窗口的边框
+
+WS_CAPTION  //窗口的标题
+
+WS_CHILD   //建立的窗口是一个子窗口
+
+WS_CLIPCHILDREN 
+
+WS_DISABLED  //窗口无效
+
+WS_DLGFRAME   建立的窗口有双线的边界.
+
+WS_GROUP  .
+
+WS_HSCROLL   //建立窗口的水平滚动条
+
+WS_MAXIMIZE   //最大化窗口
+
+WS_MAXIMIZEBOX   //显示最大化按钮
+
+WS_MINIMIZE   //最小化窗口
+
+WS_MINIMIZEBOX   //显示最小化按钮
+
+WS_OVERLAPPED   
+
+WS_OVERLAPPEDWINDOW   
+
+WS_POPUP   //建立弹出窗口
+
+WS_POPUPWINDOW   
+
+WS_SYSMENU  
+
+WS_TABSTOP   
+
+WS_THICKFRAME   //不能改变窗口大小
+
+WS_VISIBLE   //窗口最初可见
+
+WS_VSCROLL   //建立窗口的垂直滚动条 

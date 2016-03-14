@@ -1,0 +1,470 @@
+#include <stdio.h>
+#include <bios.h>
+#include <ctype.h>
+#include <conio.h>
+#include <dos.h>
+#define CROSSRU 0xbf
+#define CROSSLU 0xda
+#define CROSSLD 0xc0
+#define CROSSRD 0xd9
+#define CROSSL 0xc3
+#define CROSSR 0xb4
+#define CROSSU 0xc2
+#define CROSSD 0xc1
+#define CROSS 0xc5
+
+#define MAPXOFT 5
+#define MAPYOFT 2
+
+#define PLAY1UP 0x1157
+#define PLAY1DOWN 0x1f53
+#define PLAY1LEFT 0x1e41
+#define PLAY1RIGHT 0x2044
+#define PLAY1DO 0x3920
+
+#define PLAY2UP 0x4800
+#define PLAY2DOWN 0x5000
+#define PLAY2LEFT 0x4b00
+#define PLAY2RIGHT 0x4d00
+#define PLAY2DO 0x1c0d
+
+#define ESCAPE 0x011b
+
+
+#define CHESSNULL 0
+#define CHESS1 'O'
+#define CHESS2 'X'
+
+#define KEYEXIT 0
+#define KEYFALLCHESS 1
+#define KEYMOVECURSOR 2
+#define KEYINVALID 3
+
+#define TRUE 1
+#define FALSE 0
+
+
+struct point
+{
+int x,y;
+};
+
+
+void Init(void);
+int GetKey(void);
+int CheckKey(int press);
+int ChangeOrder(void);
+int ChessGo(int Order,struct point Cursor);
+void DoError(void);
+void DoOK(void);
+void DoWin(int Order);
+void MoveCursor(int Order,int press);
+void DrawCross(int x,int y);
+void DrawMap(void);
+int JudgeWin(int Order,struct point Cursor);
+int JudgeWinLine(int Order,struct point Cursor,int direction);
+void ShowOrderMsg(int Order);
+void EndGame(void);
+
+
+int gPlayOrder;
+struct point gCursor;
+char gChessBoard[19][19];
+
+
+void main()
+{
+int press;
+int bOutWhile=FALSE;
+Init();
+while(1)
+{
+press=GetKey();
+switch(CheckKey(press))
+{
+
+case KEYEXIT:
+clrscr();
+bOutWhile = TRUE;
+break;
+
+case KEYFALLCHESS:
+if(ChessGo(gPlayOrder,gCursor)==FALSE)
+DoError();
+else
+{
+DoOK();
+
+if(JudgeWin(gPlayOrder,gCursor)==TRUE)
+{
+DoWin(gPlayOrder);
+bOutWhile = TRUE;
+}
+
+else
+
+ChangeOrder();
+ShowOrderMsg(gPlayOrder);
+}
+break;
+
+case KEYMOVECURSOR:
+MoveCursor(gPlayOrder,press);
+break;
+
+case KEYINVALID:
+break;
+}
+if(bOutWhile==TRUE)
+break;
+}
+
+EndGame();
+}
+
+void Init(void)
+{
+int i,j;
+char *Msg[]=
+{
+"Player1 key:",
+" UP----w",
+" DOWN--s",
+" LEFT--a",
+" RIGHT-d",
+" DO----space",
+"",
+"Player2 key:",
+" UP----up",
+" DOWN--down",
+" LEFT--left",
+" RIGHT-right",
+" DO----ENTER",
+"",
+"exit game:",
+" ESC",
+NULL,
+};
+
+gPlayOrder = CHESS1;
+
+for(i=0;i<19;i++)
+for(j=0;j<19;j++)
+gChessBoard[i][j]=CHESSNULL;
+
+gCursor.x=gCursor.y=0;
+
+textmode(C40);
+DrawMap();
+
+i=0;
+textcolor(BROWN);
+while(Msg[i]!=NULL)
+{
+gotoxy(25,3+i);
+cputs(Msg[i]);
+i++;
+}
+
+ShowOrderMsg(gPlayOrder);
+
+gotoxy(gCursor.x+MAPXOFT,gCursor.y+MAPYOFT);
+}
+
+void DrawMap(void)
+{
+int i,j;
+clrscr();
+for(i=0;i<19;i++)
+for(j=0;j<19;j++)
+DrawCross(i,j);
+}
+
+void DrawCross(int x,int y)
+{
+gotoxy(x+MAPXOFT,y+MAPYOFT);
+
+if(gChessBoard[x][y]==CHESS1)
+{
+textcolor(LIGHTBLUE);
+putch(CHESS1);
+return;
+}
+
+if(gChessBoard[x][y]==CHESS2)
+{
+textcolor(LIGHTBLUE);
+putch(CHESS2);
+return;
+}
+textcolor(GREEN);
+
+if(x==0&&y==0)
+{
+putch(CROSSLU);
+return;
+}
+
+if(x==0&&y==18)
+{
+putch(CROSSLD);
+return;
+}
+
+if(x==18&&y==0)
+{
+putch(CROSSRU);
+return;
+}
+
+if(x==18&&y==18)
+{
+putch(CROSSRD);
+return;
+}
+
+if(x==0)
+{
+putch(CROSSL);
+return;
+}
+
+if(x==18)
+{
+putch(CROSSR);
+return;
+}
+
+if(y==0)
+{
+putch(CROSSU);
+return;
+}
+
+if(y==18)
+{
+putch(CROSSD);
+return;
+}
+
+putch(CROSS);
+}
+
+int ChangeOrder(void)
+{
+if(gPlayOrder==CHESS1)
+gPlayOrder=CHESS2;
+else
+gPlayOrder=CHESS1;
+return(gPlayOrder);
+}
+
+int GetKey(void)
+{
+char lowbyte;
+int press;
+while (bioskey(1) == 0)
+;
+press=bioskey(0);
+lowbyte=press&0xff;
+press=press&0xff00 + toupper(lowbyte);
+return(press);
+}
+
+void DoError(void)
+{
+sound(1200);
+delay(50);
+nosound();
+}
+
+void DoWin(int Order)
+{
+sound(1500);delay(100);
+sound(0); delay(50);
+sound(800); delay(100);
+sound(0); delay(50);
+sound(1500);delay(100);
+sound(0); delay(50);
+sound(800); delay(100);
+sound(0); delay(50);
+nosound();
+textcolor(RED+BLINK);
+gotoxy(25,20);
+if(Order==CHESS1)
+cputs("PLAYER1 WIN!");
+else
+cputs("PLAYER2 WIN!");
+gotoxy(25,21);
+cputs("\n");
+getch();
+}
+
+int ChessGo(int Order,struct point Cursor)
+{
+
+if(gChessBoard[Cursor.x][Cursor.y]==CHESSNULL)
+{
+
+gotoxy(Cursor.x+MAPXOFT,Cursor.y+MAPYOFT);
+textcolor(LIGHTBLUE);
+putch(Order);
+gotoxy(Cursor.x+MAPXOFT,Cursor.y+MAPYOFT);
+gChessBoard[Cursor.x][Cursor.y]=Order;
+return TRUE;
+}
+else
+return FALSE;
+}
+
+int JudgeWin(int Order,struct point Cursor)
+{
+int i;
+for(i=0;i<4;i++)
+
+if(JudgeWinLine(Order,Cursor,i))
+return TRUE;
+return FALSE;
+}
+
+int JudgeWinLine(int Order,struct point Cursor,int direction)
+{
+int i;
+struct point pos,dpos;
+const int testnum = 5;
+int count;
+switch(direction)
+{
+case 0:
+pos.x=Cursor.x-(testnum-1);
+pos.y=Cursor.y;
+dpos.x=1;
+dpos.y=0;
+break;
+case 1:
+pos.x=Cursor.x;
+pos.y=Cursor.y-(testnum-1);
+dpos.x=0;
+dpos.y=1;
+break;
+case 2:
+pos.x=Cursor.x-(testnum-1);
+pos.y=Cursor.y+(testnum-1);
+dpos.x=1;
+dpos.y=-1;
+break;
+case 3:
+pos.x=Cursor.x-(testnum-1);
+pos.y=Cursor.y-(testnum-1);
+dpos.x=1;
+dpos.y=1;
+break;
+}
+count=0;
+for(i=0;i<testnum*2+1;i++)
+{
+if(pos.x>=0&&pos.x<=18&&pos.y>=0&&pos.y<=18)
+{
+if(gChessBoard[pos.x][pos.y]==Order)
+{
+count++;
+if(count>=testnum)
+return TRUE;
+}
+else
+count=0;
+}
+pos.x+=dpos.x;
+pos.y+=dpos.y;
+}
+return FALSE;
+}
+
+void MoveCursor(int Order,int press)
+{
+switch(press)
+{
+case PLAY1UP:
+if(Order==CHESS1&&gCursor.y>0)
+gCursor.y--;
+break;
+case PLAY1DOWN:
+if(Order==CHESS1&&gCursor.y<18)
+gCursor.y++;
+break;
+case PLAY1LEFT:
+if(Order==CHESS1&&gCursor.x>0)
+gCursor.x--;
+break;
+case PLAY1RIGHT:
+if(Order==CHESS1&&gCursor.x<18)
+gCursor.x++;
+break;
+case PLAY2UP:
+if(Order==CHESS2&&gCursor.y>0)
+gCursor.y--;
+break;
+case PLAY2DOWN:
+if(Order==CHESS2&&gCursor.y<18)
+gCursor.y++;
+break;
+case PLAY2LEFT:
+if(Order==CHESS2&&gCursor.x>0)
+gCursor.x--;
+break;
+case PLAY2RIGHT:
+if(Order==CHESS2&&gCursor.x<18)
+gCursor.x++;
+break;
+}
+gotoxy(gCursor.x+MAPXOFT,gCursor.y+MAPYOFT);
+}
+
+void EndGame(void)
+{
+textmode(C80);
+}
+
+void ShowOrderMsg(int Order)
+{
+gotoxy(6,MAPYOFT+20);
+textcolor(LIGHTRED);
+if(Order==CHESS1)
+cputs("Player1 go!");
+else
+cputs("Player2 go!");
+gotoxy(gCursor.x+MAPXOFT,gCursor.y+MAPYOFT);
+}
+
+void DoOK(void)
+{
+sound(500);
+delay(70);
+sound(600);
+delay(50);
+sound(1000);
+delay(100);
+nosound();
+}
+
+int CheckKey(int press)
+{
+if(press==ESCAPE)
+return KEYEXIT;
+else
+if
+( ( press==PLAY1DO && gPlayOrder==CHESS1) ||
+( press==PLAY2DO && gPlayOrder==CHESS2)
+)
+return KEYFALLCHESS;
+else
+if
+( press==PLAY1UP || press==PLAY1DOWN ||
+press==PLAY1LEFT || press==PLAY1RIGHT ||
+press==PLAY2UP || press==PLAY2DOWN ||
+press==PLAY2LEFT || press==PLAY2RIGHT
+)
+return KEYMOVECURSOR;
+else
+return KEYINVALID;
+}

@@ -1,0 +1,34 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: 计算单词个数 - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP23.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/计算单词个数.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ  /c 
+"E:\计算机\电脑课作业\计算单词个数\1.c"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP23.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP24.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib  kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/计算单词个数.pdb" /debug /machine:I386 /out:"Debug/计算单词个数.exe" /pdbtype:sept 
+".\Debug\1.obj"
+".\Debug\3.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP24.tmp"
+<h3>Output Window</h3>
+Compiling...
+1.c
+E:\计算机\电脑课作业\计算单词个数\1.c(5) : error C2133: 'str' : unknown size
+执行 cl.exe 时出错.
+
+
+
+<h3>Results</h3>
+计算单词个数.exe - 1 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

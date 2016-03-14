@@ -1,0 +1,87 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: WinGame - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x804 /fo"Debug/WinGame.res" /d "_DEBUG" "D:\Temp\NewXing.com\รินฌ\WinGame 2.7\WinGame.rc"" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP37.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /FR"Debug/" /Fp"Debug/WinGame.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"D:\Temp\NewXing.com\รินฌ\WinGame 2.7\AnimDate.cpp"
+"D:\Temp\NewXing.com\รินฌ\WinGame 2.7\CreateMap.cpp"
+"D:\Temp\NewXing.com\รินฌ\WinGame 2.7\MazeView.cpp"
+"D:\Temp\NewXing.com\รินฌ\WinGame 2.7\PreRabbit.cpp"
+"D:\Temp\NewXing.com\รินฌ\WinGame 2.7\Rabbit.cpp"
+"D:\Temp\NewXing.com\รินฌ\WinGame 2.7\WinGame.cpp"
+"D:\Temp\NewXing.com\รินฌ\WinGame 2.7\WorkThread.cpp"
+"D:\Temp\NewXing.com\รินฌ\WinGame 2.7\Include\AnimCtrl.cpp"
+"D:\Temp\NewXing.com\รินฌ\WinGame 2.7\Include\AnimCtrlEx.cpp"
+"D:\Temp\NewXing.com\รินฌ\WinGame 2.7\Include\Bmp24.cpp"
+"D:\Temp\NewXing.com\รินฌ\WinGame 2.7\Include\Key.cpp"
+"D:\Temp\NewXing.com\รินฌ\WinGame 2.7\Include\Lock.cpp"
+"D:\Temp\NewXing.com\รินฌ\WinGame 2.7\Include\MemDC.cpp"
+"D:\Temp\NewXing.com\รินฌ\WinGame 2.7\Include\ShowList.cpp"
+"D:\Temp\NewXing.com\รินฌ\WinGame 2.7\Include\Thread.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP37.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP38.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /FR"Debug/" /Fp"Debug/WinGame.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"D:\Temp\NewXing.com\รินฌ\WinGame 2.7\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP38.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP39.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/WinGame.pdb" /debug /machine:I386 /out:"Debug/WinGame.exe" /pdbtype:sept 
+".\Debug\AnimDate.obj"
+".\Debug\CreateMap.obj"
+".\Debug\MazeView.obj"
+".\Debug\PreRabbit.obj"
+".\Debug\Rabbit.obj"
+".\Debug\StdAfx.obj"
+".\Debug\WinGame.obj"
+".\Debug\WorkThread.obj"
+".\Debug\AnimCtrl.obj"
+".\Debug\AnimCtrlEx.obj"
+".\Debug\Bmp24.obj"
+".\Debug\Key.obj"
+".\Debug\Lock.obj"
+".\Debug\MemDC.obj"
+".\Debug\ShowList.obj"
+".\Debug\Thread.obj"
+".\Debug\WinGame.res"
+]
+Creating command line "link.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP39.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+AnimDate.cpp
+CreateMap.cpp
+MazeView.cpp
+PreRabbit.cpp
+Rabbit.cpp
+WinGame.cpp
+WorkThread.cpp
+AnimCtrl.cpp
+AnimCtrlEx.cpp
+Bmp24.cpp
+Key.cpp
+Lock.cpp
+MemDC.cpp
+ShowList.cpp
+Thread.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+WinGame.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

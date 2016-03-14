@@ -1,0 +1,586 @@
+
+基本数据类型和表达式
+
+1.整型数据:
+	short(short int,signed sort int ,signed int);2 bytes;-32768~32767
+	unsigned short(unsigned short int);2 bytes; 0~65535
+	                      16位机                    32位机
+	int(signed int); 2 bytes; -32768~32767;   ;4 bytes; -(2^31)~(2^31)-1
+	unsigned int;    2 bytes; 0~65535 ;      ;4 bytes; 0~(2^32)-1
+	long(long int,signed long int ,signed long); 4 bytes; -(2^31)~(2^31)-1
+	unsigned long(unsigned long int); 4 bytes; 0~(2^32)-1
+
+ 整型常量:
+	进制整数:以非零的数字开始;123,234L
+	八进制数:以零开始;0123,011L
+	十六进制数:以0X或0x开始;0x123,0X123u
+ 整型变量:类型修饰符 变量名[=表达式][,变量名[=表达式]];	int x,y;int i=1,j=0;
+ 
+ 字符类型: char 占一个字节用7位;用单引号括起来:'a','0'
+ 字符型常量:
+ 转义字符:\a,\b,\f,\n,\r,\t,\v,\\,\',\",\?,\ccc,\xhh
+
+ 字符型变量定义和初始化: char c1,c2;c1='a';c2='A';
+
+符号常数:用指定名字代表的常量
+	#define MAXLINE 100  //不具有类型
+常值变量:
+	const floa
+
+函数的作用域:
+	1.函数的声明和定义默认情况下在整个程序中是extern的.
+	2.静态函数:函数前加上static
+		-不能被其它源文件所调用;
+		-允许其他源文件建立并使用同名函数
+		-文件作用域(在所用函数定义之外说明的,其作用域从说明点开始,一直延伸到源文件结束)下声明的inline函数和const常量都默认为static存储类型如加上extern则为外部存储类型.
+
+变量的存储类型:
+	1.auto(自动)型:存放在栈区中,其存储空间可以被若干变量多次覆盖使用
+	2.register(寄存器)型:(一般情况下不必这样指定)存放在CPU的通用寄存器中;只能放长度允许类型
+	3.static(静态)型:存放在一般内存区域中.
+变量的作用域和生成期:
+	1.全局变量:函数外定义的变量
+		-由编译器建立(但定义之前的所有函数定义不会知道该变量),默认初始化为0;
+		-存在于整个应用程序的运行期间.
+		-其他程序文件中的函数或本文件中变量定义之前的所有函数定义需调用此变量必须在程序文件中提前用extern对该变量进行声明.
+		-static型只允许在本程序文件中引用;
+		-缺省型可以被其它文件中的函数引用,但要在引用函数中用extern说明.
+	2.局部变量:函数内部定义的变量
+		-可以是任何类型
+		-缺省为auto型
+		-局部变量没有默认初始化
+
+不同类型变量的初始化:
+	1.auto和register变量若被初始化,则每当进入该程序块后,都执行该变量的初始化赋值功能.
+	2.没有进行初始化的auto和register变量,其初值不定,不能直接在程序中使用.
+	3.static和全局变量若不初始化,自动赋0.
+	4.static和全局变量初始化时必须用常量为其赋初值,auto和register变量初始化时可以用常量或变量赋初值.
+	5.static型局部变量的初始化仅执行一次
+	6.extern型的变量不能进行初始
+函数的作用域:
+	1.函数的声明和定义默认情况下在整个程序中是extern的.
+	2.静态函数:函数前加上static
+		-不能被其它源文件所调用;
+		-允许其他源文件建立并使用同名函数
+		-文件作用域(在所用函数定义之外说明的,其作用域从说明点开始,一直延伸到源文件结束)下声明的inline函数和const常量都默认为static存储类型如加上extern则为外部存储类型.
+
+变量的存储类型:
+	1.auto(自动)型:存放在栈区中,其存储空间可以被若干变量多次覆盖使用
+	2.register(寄存器)型:(一般情况下不必这样指定)存放在CPU的通用寄存器中;只能放长度允许类型
+	3.static(静态)型:存放在一般内存区域中.
+变量的作用域和生成期:
+	1.全局变量:函数外定义的变量
+		-由编译器建立(但定义之前的所有函数定义不会知道该变量),默认初始化为0;
+		-存在于整个应用程序的运行期间.
+		-其他程序文件中的函数或本文件中变量定义之前的所有函数定义需调用此变量必须在程序文件中提前用extern对该变量进行声明.
+		-static型只允许在本程序文件中引用;
+		-缺省型可以被其它文件中的函数引用,但要在引用函数中用extern说明.
+	2.局部变量:函数内部定义的变量
+		-可以是任何类型
+		-缺省为auto型
+		-局部变量没有默认初始化
+
+不同类型变量的初始化:
+	1.auto和register变量若被初始化,则每当进入该程序块后,都执行该变量的初始化赋值功能.
+	2.没有进行初始化的auto和register变量,其初值不定,不能直接在程序中使用.
+	3.static和全局变量若不初始化,自动赋0.
+	4.static和全局变量初始化时必须用常量为其赋初值,auto和register变量初始化时可以用常量或变量赋初值.
+	5.static型局部变量的初始化仅执行一次
+	6.extern型的变量不能进行初始
+
+指针
+指针:另一个变量的地址,用于间接访问变量
+指针变量:用于存放地址的变量定义
+空指针:
+	1.不指向任何数据,其地址值为0,用NULL表示
+	2.空指针是一个特殊指针值,是唯一对任何指针类型都合法的指针值.指针变量有空值表示它当时处于闲置状态,未指向有意义的东西.
+	  例:p=NULL;或p=0;
+
+void 指针:
+	1.称无类型指针或通用指针,不限定用途的指针,可用于指向任何类型的数据.
+	2.任何指针值都可直接赋给void指针,不必用(void*)做强制类型转换.
+	3.void指针值可赋给普通指针
+		-若void指针指向变量的类型与普通指针p应相符,且赋值时应该写类型强制转换.
+		-编译器不能识别此类型的错误.
+		-void指针不能做间接运算,只是提供指针值
+指针变量初始化:  类型修饰符 * 指针名[=指针表达式];   int *pa=&a;
+
+常值指针:指针所指向的数据为常值 const int * ap
+	const int a=123;
+	const int b=100;
+	int c=25;
+	const int * ap=&a;
+	//*ap=128;//error
+	ap=&b;
+	//*ap=128;//error
+	ap=&c;
+	//*ap=128;//error
+	c=128;
+
+指针常量:指针本身为常值 char * const cp="hello";
+	*cp="hi";
+	//cp="hi";//error
+
+指向常量的指针常量:const int *const ip1=&c;int const * const ip2=&a;
+
+指针变量初始化:
+
+指针的算术运算:
+	1.指针与整数的加减运算:指针前后移动n个数据的地址
+	2.指针加一,减一: y=*px++相当于y=*(px++)
+指针:
+	++(++pk);
+	--pk+=&k;
+	(pk++)++;//error   
+	pk--+=&k;//error
+
+指向数组元素的指针:
+	int a[10];
+	int *pa;
+	pa=&a[0];或pa=a;
+通过指针引用数组元素: *pa就是a[0]也可以写为pa[0]
+	int b[6][8];
+	int (*b)[8];//指向具有8个元素的int型一维数组的指针
+	b[i][j]		*(b[i]+j)	*(*(b+i)+j)
+ 在程序中可以直接把字符串常量赋给一个指针变量.
+
+指针数组:int *p[2];//包涵p[0],p[1]两个指针
+
+指向数组的指针:int(*p)[4];//表示p所指对象有4个元素
+二级指针：chaer**pp;
+命令行参:
+	main(int argc,char * argv[])
+	main(int argc,char * * argv)
+	argc:命令名各所有参数个数之和
+	argv:各元素是指针,分别指向各参数字符串
+
+指针作为函数参数:
+	-通过形参指针改变实参指针所指向的数据
+	-减少参数传递过程中的数据复制量
+指针型函数: 类型修饰符 * 函数名()   返回值是地址
+
+指向函数的指针: 类型修饰符 ( *函数指针名)(); 指向的是程序代码存储区
+	例: int (*p)(int a,int b);//p是指向一个返回整形值的函数
+	    int fun(int a,int b);
+	    p=fun;
+	    p(a,b);
+
+引用:
+	-是给某一个常量,变量,数组或对象起了一个别名
+	-对引用的任何操作,都是对被引用的目标的操作
+	-引用必须在声明时就初始化.
+	-类型修饰符 & 引用名=被引用的目标的名字
+引用传递参数:
+#include <iostream.h>
+void swap(int & x,int &y);
+void main(){
+	int x=5,y=6;
+	cout <<"before swap,x:"<<x<<"  ,y:"<<y<<endl;
+	swap(x,y);
+	cout <<"after wwap,x:"<<x<<"  y:"<<y<<endl;
+}
+void swap(int &rx,int &ry){
+	int temp=rx;rx=ry;ry=temp;
+动态空间管理:
+	1.运算符new和delete使编程者可以很方便地直接控制堆内存的分配和释放
+	2.new返回所申请空间的首指针,若无可分配空间则返回0.
+		注:用new申请的空间必须用delete释放,而且指针值不能改变.
+	int *p;
+	p=new int;
+	int *p=int[100];
+	int *p=new(5);
+	int *pi=new int[10];
+	int *temp=pi;
+	pi+=2;
+	delete temp;
+
+结构:
+	-是构造类型,是由不同数据类型的数据组成的集合体.
+	-为处理复杂的数据结构提供了手段
+	-为函数间传递不同类型的参数提供了方便
+定义结构类型:
+	struct 结构名{
+		数据类型 成员名1;
+		数据类型 成员名2;
+			.
+			.
+		数据类型 成员名n;
+	};
+	例:
+	struct person{
+		char name[10];
+		bool sex;
+		int age;
+		float pay;
+	};
+结构变量:
+	1.struct{...}变量名[={初始化数据}][,同类型变量名...];
+	2.struct 结构类型名 {...}变量名[={初始化数据}][,同类型变量名...];
+	3.[struct] 结构类型名 变量名[={初始化数据}][,同类型变量名...];
+	例: person a1={"john",false,21,1500.90};
+使用形式:
+	1.一般情况下不能把结构体作为一个整体参加数据处理.
+	2.结构体成员的引用形式:
+		结构变量名.成员名
+	注:"."运算优先于"*"运算
+结构数组:
+	[struct] 结构名 结构数组名[元素个数][={初始化数据}];
+结构指针:   struct结构名 * 结构指针名
+	1.访问结构成员:
+		(*结构指针名).成员名
+		结构指针名->成员名
+对象:由属性和操作构成
+	1.属性:状态,特征,组成成员
+	2.操作:修改属性,访问属性,执行命令
+
+类:具有相似特征的对象的抽象
+	例:	学生类:所有具体学生对象的抽象
+		文件类:所有具体文件对象的抽象
+
+  类是抽象的,对象是具体的
+  类是类型,对象是变量
+  类是模型,对象是实例
+
+类的定义:
+	class 类名{
+	  private:
+		私有数据和函数		//不公开
+	  protected:
+		受保护数据和函数	//适当公开
+	  public:
+		公有数据和函数		//公开
+	}
+
+
+类的成员的访问控制:
+	1.公有(public)---公开
+	2.保护(protected)---适当公开
+	3.私有(private)---不公开
+
+访问成员函数:
+	Fration a,b,c,*p;//定义对象
+	a.InitFraction();
+	p=new Fration;
+	p->InitFraction();
+访问数据成员:
+	Fration operator+(Fration & x){
+		Fration c;
+		c.nume+=nume*x.deno+deno*x.nume;
+		c.deno=deno*x.deno;
+		c.FaracSimp();
+		return c;
+	}
+
+域操作符 (::) :
+	classname::identifier     类域标识符
+	bool Fration::operator==(Fration & x){
+		return nume*x.deno==deno*x.nume;
+	}
+
+对象初始化:用构造函数
+	1.与类名相同的公有成员函数,一般进行重载以适应不同的数据情况
+	2.在程序当中不能随便调用构造函数,对象建立时由系统调用
+	3.构造函数无返回值
+	4.系统默认构造函数:  类名(){}
+
+拷贝构造函数:
+	Array(Array &x){.....}
+	-参数是同类对象的引用
+	-系统可自动提供拷贝构造函数
+	-系统提供的函数有时不正确,系统提供的函数只进行简单的复制操作
+		Array (Array &x){ *this=x;}
+		//当Array里有数组时会出问题,会分配同片内存,应该在此函数时重新申请空间
+赋值操作的重载
+	-在且只有一个所属类的参数,但可以是引用,也可以是值参
+	Array & operator=(Array &x){
+		delete a;
+		n=x.n;
+		a=new int [n];
+		for(int i=0;i<n;i++)a[i]=x.a[i];
+		return *this;
+	}//返回引用,使(a1=a2)能作为左值,使(r1=r2)=r3实现r1=r3
+	
+	-若不存在赋值操作的重载,则采用系统默认的赋值方法
+
+构造函数中的初始化表:
+	Array():a(NULL),n(0){}//后面为初始化表
+	Array(int aa[],int len):a(new int[len]){
+		n=len;
+		for(int i=0;i<n;i++)
+			a[i]=aa[i];
+	}
+
+	-若先执行初始化表,按照数据成员定义的先后赋初值;
+	-然后才执行函数体(按语句无后).
+	-对象成员,基类成员必须在初始化表中初始化
+	
+析构函数:在类的对象生命期结束时由系统自动调用的函数  公有函数
+
+	    ~类名(){函数体}
+	-无返回值
+	-无参数
+	-不可以重载
+	-默认: ~类名(){}
+	
+友元:是一种定义在类外的普通函数.友元不是成员函数,但是它可以访问类中的私有成员
+	声明:  friend 函数或类声明;//此句可放在类中的任意位置,与访问权限保留字无关
+友元类:一个类可以作为另一个类的友元类
+继承:
+
+派生类:
+	1.定义格式:
+		class<派生类名>:<继承方式><基类名>{
+			<派生类新定义成员>
+		};
+派生类:
+	2.可以有自己的数据成员和函数成员
+	3.基类的所有成员也是派生类的成员,即:派生类继承了基类所有的成员
+	4.派生类构造函数:
+		-定义方法:
+			<派生类构造函数名>(派生类构造函数总参数表>):<基类构造函数>(<参数表>)
+构造函数的执行顺序:
+			先执行基类的构造函数
+			再执行派生类的构造函数
+
+	4析构函数不能被继承,因此在执行派生类的析构函数时,基类的析构函数也将被调用.
+	5.析构时,执行顺序与执行构造函数正好相反.
+		-先调用派生类的析构函数
+		-再调用基类
+多态性:系统在运行里决定调用哪个类的成员函数
+	1.多态性使得发出同样的消息可被不同类型的对象接受而导致出现完全不同的行为.
+	2.C++用虚函数来实现多态性.
+	3.虚函数定义方法:	virtual   成员函数
+
+类的静态成员:
+	-多个对象之间实现数据共享,可以使用静态的数据成员
+	-公共静态数据成员可被类的外部访问,保护或私有的静态数据成员只可被类的内部访问
+	-静态数据成员是类的所有对象的共享成员,而不是属于某个对象的成员
+	注:
+		1.静态数据成员作为全局变量,其存储空间是在类外分配的,因此静态数据成员不能在类内初始化,也不能用构造函数初始化静态数据成员
+		2.静态数据成员必须在类的实现部分初始化,初始化时不需要加static,但静态数据成员前面必须使用作用域去处符"::"来标明它所属的类
+
+	-静态成员函数与静态数据成员一样都属于类的静态成员,都不是对象盛典.因此,对静态成员不能进行默认访问.即:必须指明对象或类名.
+	-由于静态成员函数属于类,而非静态成员属于对象,因此,在静态成员函数中不允许引用非静态成员函数.
+	-静态成员函数中可以访问对象中的非静态成员
+
+	class File{
+	  private:
+		static int file_number;//静态成员数据
+			...
+	  public:
+		static int get_file_number(){;//静态成员函数
+			return file_number;
+		}
+	};
+模板:
+	-提供了代码复用.在使用模板时首先要实例化,即生成一个具体的函数或类.函数模板的实例化是隐式实现的,即由编译系统根据对具体模板函数(实例化后的函数)的调用来进行相应的实例化,而类模板的实例化是显式进行的,在创建对象时由程序指定.
+	-一个模板有很多实例,是否实例化模板的某个实例由使用来决定,如果未使用到一个模板的某个实例,则编译系统不会生成相应实例的代码.
+	-在C++中,由于模块是分别编译的,如果在模块A中要使用模块B中定义的一个模板的某个实例,而在模块B中未使用这个实例,则模块A无法使用这个实例,除非在模块A中也定义了相应的模板.模板是基于源代码复用,而不是目标代码复用.
+
+	-类模板的定义:
+	template <class Type>
+	class List{
+	  public:
+		//...
+	  private:
+		Type item;
+		List *next;
+	};
+
+	-模板的实例化:在一个类模板的各个实例之间没有特殊的联系(形成一个个独立的类)
+		List <int>qi;
+		List <string>qs;
+		List q;//此为错误用法,未知模板类型
+
+	-模板参数:
+		1.模板的参数可以是一种类型(type)或者非类型(nontype)
+		2.类型参数用typename或class关键字指明:
+			template<class T1,class T2,class T3>
+			class classname;
+			template <typename T1,typename T2,typename T3>
+			class classname;
+		3.每个类型名前面都必须有class或typename关键字.
+
+		4.非类型参数就是通常的参数定义:
+			表示在模板实例化为类时所用的常量
+			template <class Type,int size>
+			class List;
+			
+		   //实例化:
+			List <int,100>iq;
+		5.对于类型参数和非类型参数都可以设默认值
+			template <class Type=int,int size=1024>
+			class List;
+		   //实例化:
+			List<int,100>iq1;
+			List<int>iq2;
+			List<>iq3;
+
+
+头文件:
+	1.iostream.h
+		-包含ios,iostream,istream,ostream等类定义
+
+	2.fstream.h
+		-包含fstream,ifstream,ofstream和fstreambase等类定义,以及iostream.h中的所有内容
+
+	3.strstrea.h
+		-包含strstream,istrstream,ostrstream和strstreambase等类定义,以及iostream.h中的所有内容
+
+	4.iomanip.h
+		-包含setw等操纵符定义,以及iostream.h中的所有内容
+
+预定义流对象:
+	1.cin 标准输入
+	2.cout 标准输出
+	3.cerr 标准出错信息输出
+	4.clog 带缓冲的标准出错信息输出
+
+提取操作符  >>  :
+	istream & operator >> (istream&,简单类型标识符&);
+	
+	cin>>x;
+	-根据实参x的类型调用相应的重载函数,把x引用传送给的形参,接着从键盘的输入中读取一个值并赋给x(因形参是x的别名)后,返回cin流,以便继续使用提取操作符为下一个变量输入数据.
+	-为x读入数据,以空格或回车符作为其结束标志的.
+	-若x为字符指针类型时,则要求从键盘的输入中读取一个字符串,并把它赋值给x所指向的存储空间中,若x没有事先指向一个允许写入信息的存储空间,则无法完成输入操作.
+
+插入操作符  <<  :
+	ostream& operator << (ostream&,简单类型标识符);
+
+	cout << x;
+	-把x的值按值传送给对应的形参,接着执行函数体,把x的值(亦即形参的值)输出到显示器屏幕上,从当前屏幕光标位置起显示出来,然后返回cout流,以便继续使用插入操作符输出下一个表达式的值.
+
+输入输出格式控制:
+	1.ios类中的枚举常量:
+		-在根基类ios中定义有三个公用成员:
+		 第一个枚举类型为:
+			enum {skipws,left,right,internal,dec,oct,hex,showbase,showpoint,uppercase,showpos,scientific,fixed,unitbuf,stdio};
+			//Skipws(为缺省设置)跳过当前位置及后面的所有的空白字符
+			//left,right,internal(缺省为right设置)对齐方式:internal:表示数值的符号按左对齐,数值本身按右对齐输出
+			//dec,oct,hex(缺省为dec设置)
+			//showbase设置进制基指示符
+			//showpoint(缺省不设置)
+			//uppercase(缺省不设置)设置进制基指示符为大写
+			//showpos(缺省不设置)正数前带有正号"+"
+			//scientific,fixed  科学方式,固定方式
+
+		第二个枚举类型:文件打开方式
+			enum open_mode{in,out,ate,app,trunc,nocreate,noreplace,binany};
+
+		第三个枚举类型:文件指针定位
+			enum seek_dir{beg,cur,end};
+
+	2.ios类中的成员函数:
+		int bad();//操作出错时返回非0值
+		int eof();//读取到流中最后的文件结束符时返回非0值
+		int fail();//操作失败时返回非0值
+		void clear();//清除bad,eof和fail所对应的标志状态
+		char fill();//返回当臆使用的填充字符
+		char fill(char c);//设置填充字符为c的值
+		long flags();//返回当前用于I/O控制的格式状态字
+		long flags(long f);//设置格式状态字为f的值.
+		int good();//操作正常时返回非0值
+		int precision();//返回输出精度
+		int precision(int n);//设置精度为n
+		int rdstate();//操作正常时返回0
+		long setf(long f);//设置格式化标志
+		long unsetf(long f);//清除相应的格式化标志
+		int width();//返回当前的输出域宽
+		int width(int w);//设置下一个输出域宽为w
+
+		cout.setf(ios::oct);//设置为八进制输出
+		cout.unsetf(ios::oct);//取消八进制输出设置,恢复按十进制输出
+		cout.setf(ios::showbase|ios::uppercase);//设置基指示符输出和数值中的字母大写输出
+		cout.width(10);//设置输出下一个数据的域宽为10
+		cout.fill('*');//设置填充字符为"*"
+		cout.precision(3);//设置浮点数输出精度为3
+		cout.setf(ios::showpos);//设置正数的正号输出
+		cout.setf(ios::showpoint);//强制显示小数点和无效0
+
+	3.使用系统头文件iomanip.h上提供的操纵符,不需要调用成员函数
+		dec,oct,hex,ws,endl,ends,flush,
+		setiosflags(long f);//设置f所对应的格式化标志
+		resetiosflags(long f);//清除f所对应的格式化标志
+		setfill(int c);
+		setprecision(int n);
+		setw(int w);
+
+		cout<<hex<<x<<' '<<y<<' '<<z<<endl;//按十六进制输出
+		cout<<setiosflags(ios::showbase|ios::uppercase);
+		cout<<resetiosflags(ios::showbase|ios::uppercase);
+		cout<<"x="<<setw(10)<<x;
+		cout<<setfill('*');//设置填充字符为"*"
+		cout<<setprecision(3);//设置浮点数输出精度为3
+		cout<<setiosflags(ios::showpos);//设置正数的正号输出
+
+文件:
+	1.保存数据的文件搂存储格式分为两种类型:
+		-字符格式文件,简称字符文件,ASCII码文件或文本文件,一个换行符'\n'被看作回车'\r'和换行'\n'两个字符;
+		-内部格式文件,简称字节文件,二进制文件:文件内容是数据的内部表示.
+		如:短整型数1096,内部表示占有两个字节04 2D H;若用ASCII码表示则为四个字节31 30 36 39 H.
+	2.C++系统把各种外部设备看成文件:
+		-标准输入输出设备键盘和显示器:标准输入输出文件con.
+		-con对应两个系统预定义的流,即标准输入流cin和标准输出流cout,分别用于键盘输入和显示器输出.
+
+	3.每个打开的文件,都存在一个文件指针
+	4.程序中要使用文件时,要包含fstream.h文件
+	4.open成员函数:
+		void open(const char* fname,int mode);
+		//open_mode枚举类型中的每个枚举常量的含义如下:
+		//ios::in,ios::out
+		//ios::ate//使文件指针移到文件尾,即最后的位置
+		//ios::app//使文件指针移到文件尾,并只允许向文件尾输出(即追加)数据.
+		//ios::trunc//若打开的文件存在,则清除其全部内容,使之变为空文件
+		//ios::nocreate//若打开的文件不存在则不建立它,返回打开失败信息
+		//ios::binary//规定打开的为二进投师文件,否则打开的为字符文件
+
+		ifstream fin;
+		fin.open("c:\\test.dat",ios::in|ios::nocreate);
+
+		ofstream fout;
+		fout.open("c:\\test.dat",ios::app);
+
+		fstream fio;
+		fio.open("c:\\test.ran",ios::in|ios::out|ios::binary);
+	5.关闭文件流:
+		fout.close();
+
+	6.向字符文件输出数据:
+		-调用从ostream流类中继承来的插入操作符重载函数:
+			ostream & operator<<(ostream &,简单类型);
+		-调用从ostream流类中继承来的put成员函数:
+			ostream & pu
+
+
+	7.从字符文件输入数据:
+		-调用提取操作符重载成员函数:
+			istream & operator>>(istream& ,简单类型&);
+		-调用get()成员函数或者调用get(char &)成员函数:
+			int get();//返回从流中提取到的一个字符
+			istream & get(char &);//从流中提取一个字符到字符引用中
+		-调用getline(char* buffer,int len , char='\n')成员函数
+			istream& getline(char* buffer,int len,char='\n');
+
+		ifstream f1("c:\\wr1.dat",ios:in|ios::nocreate);
+		if(!f1){cerr<<"c:\\wr1.dat file not open !"<<endl;exit(1);}
+		int x;
+		while(f1>>x)cout<<x<<' ';
+		char ch;
+		while(f2.get(ch))cout<<ch;
+
+字符串流:
+	1.字符串流对应的访问空间:内存中由用户定义的字符数组(无结束符标志).
+	2.字符串流类不带有open成员函数,通过构造函数关联字符数组.
+	3.三种字符串流的构造函数声明格式分别如下:
+		istrstream(const char* buffer);
+		ostrstream(char * buffer,int n);
+		strstream(char* buffer,int n,int mode);
+
+	char a[]="38,46,55, 78,42 ,77,60,93@";
+	istrstream sin(a);
+	char ch=' ';
+	int x;
+	while(ch!='@'){
+		sin>>ws>>x>>ws;
+		sin.get(ch);
+	}

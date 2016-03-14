@@ -1,0 +1,57 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: 第一个MFC - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x804 /fo"Debug/第一个MFC.res" /d "_DEBUG" /d "_AFXDLL" "F:\BACKUP\admin\Desktop\MFC\第一个MFC\第一个MFC.rc"" 
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSP87A7.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Debug/" /Fp"Debug/第一个MFC.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"F:\BACKUP\admin\Desktop\MFC\第一个MFC\MainFrm.cpp"
+"F:\BACKUP\admin\Desktop\MFC\第一个MFC\第一个MFC.cpp"
+"F:\BACKUP\admin\Desktop\MFC\第一个MFC\第一个MFCDoc.cpp"
+"F:\BACKUP\admin\Desktop\MFC\第一个MFC\第一个MFCView.cpp"
+]
+Creating command line "cl.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSP87A7.tmp" 
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSP87A8.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Debug/" /Fp"Debug/第一个MFC.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"F:\BACKUP\admin\Desktop\MFC\第一个MFC\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSP87A8.tmp" 
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSP87A9.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/第一个MFC.pdb" /debug /machine:I386 /out:"Debug/第一个MFC.exe" /pdbtype:sept 
+".\Debug\MainFrm.obj"
+".\Debug\StdAfx.obj"
+".\Debug\第一个MFC.obj"
+".\Debug\第一个MFCDoc.obj"
+".\Debug\第一个MFCView.obj"
+".\Debug\第一个MFC.res"
+]
+Creating command line "link.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSP87A9.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+MainFrm.cpp
+第一个MFC.cpp
+第一个MFCDoc.cpp
+第一个MFCView.cpp
+Generating Code...
+Linking...
+Creating command line "bscmake.exe /nologo /o"Debug/第一个MFC.bsc"  ".\Debug\StdAfx.sbr" ".\Debug\MainFrm.sbr" ".\Debug\第一个MFC.sbr" ".\Debug\第一个MFCDoc.sbr" ".\Debug\第一个MFCView.sbr""
+Creating browse info file...
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+第一个MFC.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

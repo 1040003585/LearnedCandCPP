@@ -1,0 +1,182 @@
+
+
+1111111111111111111111111111111111111111111
+
+1.int creat(const char *fileneme, mode_t mode)  
+	filename:要创建的文件名（包括路径，缺省为当前）
+	mode:创建模式
+ 	// S_IRUSR	可读	->4
+	// S_IRUSR	可写	->2
+	// S_IXUSR	可执行	->1
+	// S_IRWXU	可读，可写，可执行	
+	上述值的和，如可写可读	->6
+	无任何权限 ->0
+
+2.int open(const char *pathname, int flags)
+  int open(const char *pathname, int flags,mode_t mode)  //如果使用O_CREAT标志，就用这种打开方式
+
+	pathname:要打开的文件名（包含路径，缺省为当前路径）
+	flags：打开标志
+常见打开标志：
+	O_RDONLY	只读方式打开
+	O_WRONLY	只写方式打开
+	O_RDWR		读写方式打开
+	O_APPEND	追加方式打开
+	O_CREAT		创建一个文件
+	O_NOBLOCK	非阻塞方式打开
+
+3.int close(int fd)
+	fd:文件描述符
+
+int read(int fd, const void *buf, size_t length)
+功能：
+	从文件描述符fd所指定的文件中读取length个字节到buf所指的缓冲区中，返回值为实际读取的字节数
+
+int write(int fd, const void *buf, size_t length)
+功能：
+	把length个字节从buf指向的缓冲区中些到文件描述符fd所指向的文件中，返回值为实际写入的字节数
+
+int sleek (int fd, offset_t offset, int whence)
+功能：
+	将文件读写指针相对whence移动offset个字节，操作成功时返回文件指针相对于文件头的位置
+
+whence可使用下述值：
+	SEEK_SET:相对文件开头
+	SEEK_CUR:相对文件读写指针的当前位置
+	SEEL_END:相对文件末尾
+
+offset可取 负值，表示向前移动。例如下述调用可将文件指针相对当前位置向前移动5个字节
+	leek(fd, -5. SEEK_CUR)
+
+int access(const char *pathname, int mode)
+	pathname:文件名称
+	mode：要判断的访问权限。（R_OK文件可读，W_OK:文件可写，X_OK:文件可执行，F_OK:文件存在）可以组合使用
+	返回值：测试成功返回0，否则如果一个条件不符时，返回-1
+
+例如：
+#include<unistd.h>
+int main()
+{
+	if(access("/etc/passwd", R_OK) == 0)
+		printf("can read!\n");
+}
+
+
+
+
+
+
+22222222222222222222222222222222222222
+
+2-2
+
+FILE *fopen(const char *filename, const char *mode)
+	mode:打开模式：
+		r,rb,rt	只读方式打开(rt打开文本文件，rb打开二进制文件)
+		w,wb,wt 	只写方式打开，若文件不存在则创建
+		a,ab,at 	追加方式打开，文件不存在则创建
+		r+,r+b,rb+	读写方式打开
+		w+, w+b, wh+:	读写方式打开，不存在则创建
+		a+,a+b,ab+：	读和追加方式打开，不存在则创建
+
+2.size_t fread(void *ptr, size_t size, size_t n, FILE *stream)
+功能：从stream指向的文件中读取n个字段，每个字段为size字节，并将读取的数据放入ptr所指的字符数组中，返回实际已读取的字节数
+
+3.size_t fwrite(const void *ptr, size_t size, size_t n, FILE *stream)
+功能：
+	从缓冲区ptr所指的数组中把n个字段写到stream指向的文件中，每个字段长为size个字节，返回实际写入的字节数
+
+4.
+	int fgetc(FILE *stream)  //从指定的文件中读一个字符
+
+5.
+	int fputc(int c, FILE *stream) //从指定文件写入一个字符
+
+6.fscanf(FILE *stream, char *format[, artument, ...])
+	从一个流中进行格式化输入
+
+7. fprintf(FILE *stream, char *format[, argument, ...])
+	格式化输出到一个流中
+	 
+8.int fseek(FILE *stream, long offset, int whence)
+	whence 和lseek相同
+
+9.char *getcwd(char *buffer, size_t size)
+	功能：得到当前路径
+	我们提供一个size大小的buffer，getcwd会把当前的路径名copy到buffer中，如果buffer太小，函数返回-1
+
+10.#include<sys/stat.h>
+	int mkdir(char *dir, int mode)
+功能：创建一个新目录
+返回值：0表示成功，-1表示失败
+
+
+
+
+
+
+33333333333333333333333333333333333333
+
+2-3
+
+1.时间的获取
+
+#include<time.h>
+	time_t time(time_t *tloc)
+功能：获取日历时间，即从1970年1.1 0点到现在所经历的秒数
+
+struct tm *gmtime(const time_t *timep)
+	将日历时间转化为格林威治时间，并保存至TM结构
+struct tm *localtime(const time_t *timep)
+	将日历时间转化为本地时间，并保存至TM结构
+
+struct tm
+{
+	int tm_sec; // 秒值
+	int tm_min; //分钟值
+	int tm_hour; // 小时值
+	int tm_mday; //本月第几日
+	int tm_mon;  //本年第几月
+	int tm_year; //tm_year + 1900 = 哪一年
+	int tm_wday; //本周第几日
+	int tm_yday; //本年第几日
+	int tm_isdst; //日光节约时间
+}
+
+}
+
+char *asctime(const struct tm *tm)
+	将tm格式的时间转化为字符串。如：用date命令看看！
+
+char *ctime(const time_t *timep)
+	将日历时间转化为本地时间的字符串形式
+
+
+2. 
+	int gettimeofday(struct timeval *tv, struct timezone *tz)
+功能：获取从今日凌晨到现在的时间差，常用于计算事件的耗时
+
+struct timeval
+{
+	int tv_sec;  //秒数
+	int tv_usec;  //微秒数
+}
+
+3. unsigned int sleep(unsigned int seconds)
+	功能：使程序睡眠seconds秒
+
+	void usleep(unsigned long usec)
+	功能：使程序睡眠usec微秒
+	
+// 1秒=1000毫秒，1毫秒=1000微秒，1微秒=1000纳秒，1纳秒=1000皮秒
+	
+
+
+
+
+
+
+
+
+
+

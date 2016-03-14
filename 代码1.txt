@@ -1,0 +1,558 @@
+﻿﻿void lottery::mac_sel_()								//机选
+{
+	int i,j,k;
+	struct caipiao *p,*q,*r;
+	p=q=r=pArr;
+	cout<<"请输入您购选彩票数量： ";
+	cin>>k;
+	while(!cin)
+	{
+		cout<<"输入非法，请重新输入： ";
+		cin.clear();
+		cin.sync();
+		cin>>k;
+	}
+	for(;k>0;k--)
+	{
+		cout << "您的机选号码为： " << endl;
+		srand((unsigned int)time(NULL));
+		p->Next=new caipiao;
+		q=p;
+		//struct caipiao *q=p;
+		p->Next->guess_elem[0] = rand() % 36;
+		for (i = 1; i < N; i++)
+		{
+			p->Next->guess_elem[i] = rand() % 36;
+			for (j = 0; j<i; j++)
+			{
+				if (p->Next->guess_elem[i] == p->Next->guess_elem[j])
+				{
+					p->Next->guess_elem[i] = rand() % 36;
+					j = -1;
+				}
+			}
+		}
+		for (i = 0; i<N; i++)
+		{
+			cout << q->Next->guess_elem[i] << "  ";
+		}
+		p->Next=p->Next->Next;
+	}
+	p->Next=NULL;
+	while(r->Next!=NULL)
+	{
+		struct caipiao *y=r;
+		r->Next=r->Next->Next;
+		delete r->Next;
+	}
+	delete r;
+	sign=true;
+	cout<<endl;
+	cout<<"\n请按Enter键，返回主菜单： ";
+	cin.get();
+	cin.get();
+} 
+
+
+
+#define _CRT_SECURE_NO_WARNINGS
+#include<iostream>
+#include<cstring>
+#include<windows.h>
+#include<ctime>
+#include"lottery.h"
+using namespace std;
+void lottery::check_()									//帐号密码校验
+{
+	char user_name[20];
+	char pass_word[20];
+	while(count--)
+	{
+		cout<<"账号密码验证："<<endl;
+		cout<<"user name: ";
+		while(!cin.getline(user_name,20))
+		{
+			cin.clear();
+			cin.sync();
+		}
+		cout<<"pass word: ";
+		while(!cin.getline(pass_word,20))
+		{
+			cin.clear();
+			cin.sync();
+		}
+		if((strcmp(user_name_,user_name)==0) && (strcmp(pass_word_,pass_word)==0))
+		{
+			cout<<"校验成功!\n"
+				<<"正在跳转页面";
+			char a[4]="...";
+			for(int i=0;i<3;i++)
+			{
+				for(int j=0;a[j]!='\0';j++)
+				{
+					cout<<a[j];
+					Sleep(500);
+				}
+			}
+			system("cls");
+			sign2=true;
+			break;
+		}
+		else
+		{
+			system("cls");
+			cout<<"你还有"<<count<<"次输入机会！"<<endl;
+			if(count==0)
+			{
+				cout<<"校验失败，程序退出!"<<endl;
+				sign2=false;
+			}
+		}
+	}
+}
+void lottery::register_()								//注册
+{
+	cout<<"会员注册："<<endl;
+	cout<<"user name(5~19位字符): ";
+	while(!cin.getline(user_name_,20)||strlen(user_name_)<5)
+	{
+		cout<<"Format error!\n"
+			<<"please press any key to again: ";
+		cin.clear();
+		cin.sync();
+		if(cin.get())
+		{
+			cin.sync();
+			system("cls");
+			cout<<"会员注册："<<endl;
+			cout<<"user name(5~19位字符): ";
+		}
+	}
+	cout<<"pass word(5~19位字符): ";
+	while(!cin.getline(pass_word_,20)||strlen(pass_word_)<5)
+	{
+		cout<<"Format error!\n"
+			<<"please press any key to again: ";
+		cin.clear();
+		cin.sync();
+		if(cin.get())
+		{
+			system("cls");
+			cout<<"pass word(5~19位字符): ";
+		}
+	}
+	system("cls");
+	check_();
+}
+void lottery::intf_sel_()							//界面选择
+{
+	while(sign2)
+	{
+		cout<<"功能选择："<<endl;
+		cout<<"1,机选"<<endl;
+		cout<<"2,人选"<<endl;
+		cout<<"3,摇奖"<<endl;
+		cout<<"4,兑奖"<<endl;
+		cout<<"5,系统退出"<<endl;
+		cout<<"请输入编号，选择功能： ";
+		cin>>sel_elem;
+		while(!cin || sel_elem>5 || sel_elem<=0)
+		{
+			cin.clear();
+			cin.sync();
+			cout<<"错误选择，请重新输入： ";
+			cin>>sel_elem;
+		}
+		switch(sel_elem)
+		{
+		case 1:
+			system("cls");
+			mac_sel_();
+			break;
+		case 2:
+			system("cls");
+			per_sel_();
+			break;
+		case 3:
+			system("cls");
+			win_num_();
+			break;
+		case 4:
+			system("cls");
+			check_pri_();
+			break;
+		case 5:
+			system("cls");
+			return;
+		}
+		system("cls");
+	}
+}
+void lottery::win_num_()								//获奖号码
+{
+	if(sign)
+	{
+		int i,j;
+		cout << "本期中奖号码为： " << endl;
+		srand((unsigned int)time(NULL));
+		win_elem[0] = rand() % 36;
+		for (i = 1; i < N; i++)
+		{
+			win_elem[i] = rand() % 36;
+			for (j = 0; j<i; j++)
+			{
+				if (win_elem[i] == win_elem[j])
+				{
+					win_elem[i] = rand() % 36;
+					j = -1;
+				}
+			}
+		}
+		for (i = 0; i<N; i++)
+		{
+			cout << win_elem[i] << "  ";
+		}
+		sign1=true;
+	}
+	else
+	{
+		cout<<"未投注彩票，请返回菜单选择1或2进行投注！";
+	}
+	cout<<endl;
+	cout<<"\n请按Enter键，返回主菜单： ";
+	cin.get();
+	cin.get();
+
+}
+void lottery::mac_sel_()								//机选
+{
+	int i,j,k;
+	struct caipiao *p,*q,*r;
+	p=q=r=pArr;
+	cout<<"请输入您购选彩票数量： ";
+	cin>>k;
+	while(!cin)
+	{
+		cout<<"输入非法，请重新输入： ";
+		cin.clear();
+		cin.sync();
+		cin>>k;
+	}
+	for(;k>0;k--)
+	{
+		cout << "您的机选号码为： " << endl;
+		srand((unsigned int)time(NULL));
+		p->Next=new caipiao;
+		q=p;
+		//struct caipiao *q=p;
+		p->Next->guess_elem[0] = rand() % 36;
+		for (i = 1; i < N; i++)
+		{
+			p->Next->guess_elem[i] = rand() % 36;
+			for (j = 0; j<i; j++)
+			{
+				if (p->Next->guess_elem[i] == p->Next->guess_elem[j])
+				{
+					p->Next->guess_elem[i] = rand() % 36;
+					j = -1;
+				}
+			}
+		}
+		for (i = 0; i<N; i++)
+		{
+			cout << q->Next->guess_elem[i] << "  ";
+		}
+		p->Next=p->Next->Next;
+	}
+	p->Next=NULL;
+	while(r->Next!=NULL)
+	{
+		struct caipiao *y=r;
+		r->Next=r->Next->Next;
+		delete r->Next;
+	}
+	delete r;
+	sign=true;
+	cout<<endl;
+	cout<<"\n请按Enter键，返回主菜单： ";
+	cin.get();
+	cin.get();
+}
+
+
+
+void lottery::per_sel_()										//人选
+{
+	struct caipiao *p;
+	p=pArr;
+	int i,j,k;
+	cout<<"请输入你要购选的彩票数量：　";
+	cin>>i;																//彩票数量
+	while(!cin)
+	{
+		cout<<"输入非法，请重新输入：　";
+		cin.clear();
+		cin.sync();
+		cin>>i;
+	}
+	for(;i>0;i--)
+	{
+		p->Next=new caipiao;
+		cout<<"请输入自选号码(7个0~35的数字)：　";
+		cin>>p->Next->guess_elem[0];
+		while(!cin || p->Next->guess_elem[0]<0 || p->Next->guess_elem[0]>35)
+		{
+			cout<<"输入自选号码非法，请重新输入：　";
+			cin.clear();
+			cin.sync();
+			cin>>p->Next->guess_elem[0];
+		}
+		for(j=1;j<N;j++)
+		{
+			cin>>p->Next->guess_elem[j];
+			while(!cin || p->Next->guess_elem[j]<0 || p->Next->guess_elem[j]>35)
+			{
+				cout<<"输入元素非法，请重新输入：　";
+				cin.clear();
+				cin.sync();
+				cin>>p->Next->guess_elem[j];
+			}
+			for(k=0;k<j;k++)
+			{
+				if(p->Next->guess_elem[j]==p->Next->guess_elem[k])
+				{
+					cout<<"有相同元素，请重新输入：　";
+					cin>>p->Next->guess_elem[j];
+					while(!cin || p->Next->guess_elem[j]<0 || p->Next->guess_elem[j]>35)
+					{
+						cout<<"输入元素非法，请重新输入：　";
+						cin.clear();
+						cin.sync();
+						cin>>p->Next->guess_elem[j];
+					}
+					k=-1;
+				}
+			}
+		}
+		p->Next=p->Next->Next;
+	}
+	p->Next=NULL;
+	/*int i,j;
+	cout<<"请输入自选号码(7个0~35的数字)：　";
+	cin>>guess_elem[0];
+	while(!cin)
+	{
+	cout<<"输入非法，请重新输入：";
+	cin.clear();
+	cin.sync();
+	cin>>guess_elem[0];
+	}
+	for (i = 1; i < N; i++)
+	{
+	cin>>guess_elem[i];
+	while(!cin)
+	{
+	cout<<"输入非法，请重新输入：";
+	cin.clear();
+	cin.sync();
+	cin>>guess_elem[i];
+	}
+	for (j = 0; j<i; j++)
+	{
+	if (guess_elem[i] == guess_elem[j])
+	{
+	cout<<"有相同数字，请重新输入：";
+	cin>>guess_elem[i];
+	j = -1;
+	}
+	}
+	}*/
+	/*for(i=0;i<N;i++)
+	{
+	cin>>guess_elem[i];
+	while(!cin || guess_elem[i]>35 || guess_elem[i]<0)
+	{
+	cout<<"不合法的输入，请重新入录数据：　";
+	cin.clear();
+	cin.sync();
+	i=-1;
+	}
+	}*/
+	sign=true;
+	cout<<"投注成功！"<<endl;
+	cout<<"请按Enter键，返回主菜单： ";
+	cin.get();
+	cin.get();
+}
+void lottery::check_pri_()                                 //兑奖
+{
+	
+	if(sign && sign1)
+	{
+		int i,j,one=0,two=0,three=0,four=0,without=0,total=0;
+		for(struct caipiao *p=pArr;p->Next!=NULL;p->Next=p->Next->Next)
+		{
+			for(i=0;i<N;i++)
+			{
+				for(j=0;j<N;j++)
+				{
+					if(win_elem[i]==p->Next->guess_elem[j])
+					{
+						iden_num++;
+					}
+				}
+			}
+			switch(iden_num)
+			{
+			case 4:
+				four++;
+				break;
+			case 5:
+				three++;
+				break;
+			case 6:
+				two++;
+				break;
+			case 7:
+				one++;
+				break;
+			default:
+				without++;
+				break;
+			}
+			iden_num=0;
+		}
+		cout<<"本期中奖号码为："<<endl;
+		for(i=0;i<N;i++)
+		{
+			cout<<win_elem[i]<<' ';
+		}
+		cout<<endl;
+		cout<<"您的机选号码为："<<endl;
+		for(struct caipiao *p=pArr;p->Next!=NULL;p->Next=p->Next->Next)
+		{
+			for(i=0;i<N;i++)
+			{
+				cout<<p->Next->guess_elem[i]<<' ';
+			}
+			cout<<endl;
+		}
+		cout<<"本次购彩获奖如下："<<endl;
+		cout<<"获奖总数为： "<<(total=one+two+three+four)<<endl;
+		cout<<"一等奖："<<one<<endl;
+		cout<<"二等奖："<<two<<endl;
+		cout<<"三等奖："<<three<<endl;
+		cout<<"四等奖："<<four<<endl;
+		cout<<"未获奖："<<without<<endl;
+		/*switch(iden_num)
+		{
+		case 4:
+			cout<<"恭喜god爷获得了四等奖，奖金1000，请备好刀具去银行领取！"<<endl;
+			break;
+		case 5:
+			cout<<"恭喜god爷获得了三等奖，明天去银行取1斤白银来！"<<endl;
+			break;
+		case 6:
+			cout<<"恭喜god爷获得了二等奖，明天银行会送20斤黄金来，还干啥程序员啊，辞了吧！"<<endl;
+			break;	
+		case 7:
+			cout<<"god爷，这尼玛人品爆表吗，居然一等奖，肯定是系统错误..."<<endl;
+			break;
+		default:
+			cout<<"咦～～～果然运气臭，放个屁连点响声都没有！"<<endl;
+		}*/
+		cout<<"请按Enter键，返回主菜单：";
+		cin.get();
+		cin.get();
+	}
+	else
+	{
+		if(!sign || (!sign1 && !sign))
+		{
+			cout<<"未投注彩票，请返回菜单选择1或2进行投注！\n";
+		}
+		else if(!sign1)
+		{
+			cout<<"未进行摇奖，请返回菜单选择3进行摇奖！\n";
+		}
+		cout<<endl;
+		cout<<"请按Enter键，返回主菜单：";
+		cin.get();
+		cin.get();
+	}
+}
+lottery::lottery()									//构造函数
+{
+	strcpy(user_name_,"no name");
+	strcpy(pass_word_,"no word");
+	for(int i=0;i<N;i++)
+	{
+		win_elem[i]=0;
+	}
+	iden_num=0;
+	sel_elem=0;
+	sign=sign1=sign2=false;
+	count=3;
+}
+lottery::~lottery()									//析构函数
+{
+	char a[]="Thank for your using!\nBye!\n";
+	for(int i=0;a[i]!='\0';i++)
+	{
+		cout<<a[i];
+		Sleep(100);
+	}
+} 
+
+
+
+#ifndef _LOTTERY_H
+#define _LOTTERY_H
+const int N=7;
+struct caipiao
+{
+	int guess_elem[N];
+	struct caipiao *Next;
+};
+class lottery
+{
+private:
+	struct caipiao *pArr;
+	char user_name_[20];	//用户名
+	char pass_word_[20];	//密码
+	int  win_elem[N];		//获奖号码
+	//int  guess_elem[N]    //人选号码
+
+	int  count;				//帐号密码验证记录剩余次数
+	int  sel_elem;			//选择编号
+	int  iden_num;			//记录相同元素个数
+	bool sign,sign1,sign2;	//标记
+	void check_();			//用户名密码校验
+public:
+	void intf_sel_();       //界面选择
+	void register_();		//注册
+	void mac_sel_();		//机选
+	void per_sel_();		//人选
+	void win_num_();		//摇奖
+	void check_pri_();		//兑奖
+	lottery();
+	~lottery();
+};
+#endif 
+
+
+#include<iostream>
+#include"lottery.h"
+using namespace std;
+int main()
+{
+	lottery any;
+	any.register_();
+	any.intf_sel_();
+	return 0;
+} 
+
+35远选7彩票系统
+
+
+
